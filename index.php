@@ -1,4 +1,8 @@
 <?php
+
+// Set the timezone to Central European Time
+date_default_timezone_set('Europe/Budapest');
+
 // Include core files
 require_once __DIR__ . '/src/auth.php';
 require_once __DIR__ . '/config.php';
