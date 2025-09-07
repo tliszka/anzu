@@ -315,3 +315,16 @@ body {
 .modal-tabs .tab-link[data-tab="signup"] {
     display: none;
 }
+
+/* QR Code Styles - REVISED for Mobile */
+.qr-code-container {
+    margin: 0 15px 20px 15px; /* 15px margin on the sides, 20px on the bottom */
+}
+
+.qr-code-image {
+    display: block; /* Removes extra space below the image */
+    width: 100%;    /* Makes the QR code fill its container */
+    max-width: 250px; /* Caps the size so it doesn't get huge */
+    height: auto;   /* Maintains the square aspect ratio */
+    margin: 0 auto; /* Centers the image within the container */
+}
