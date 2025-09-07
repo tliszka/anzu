@@ -1,0 +1,29 @@
+# Name of the GitHub Action
+name: Deploy to cPanel
+
+# This action will trigger on every push to the 'main' branch
+on:
+  push:
+    branches:
+      - main
+
+# The job that will be executed
+jobs:
+  deploy:
+    runs-on: ubuntu-latest # Use a standard Linux virtual machine
+    steps:
+      # Step 1: Check out a copy of your repository's code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Upload the files to your server using FTP
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          # Use the secrets we created in GitHub Settings
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          
+          # The destination directory on your server
+          server-dir: public_html/
