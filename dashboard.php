@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// If the user is not logged in, redirect them to the home page
 if (!isset($_SESSION['user_id'])) {
     header('Location: index.php');
     exit();
@@ -12,8 +11,6 @@ require_once __DIR__ . '/src/db.php';
 
 try {
     $pdo = get_pdo_connection();
-
-    // Fetch all passes owned by the current user
     $stmt = $pdo->prepare(
         "SELECT p.name, up.pass_code, up.tickets_remaining, p.ticket_count, up.expiry_date
          FROM user_passes up
@@ -23,9 +20,7 @@ try {
     );
     $stmt->execute([$_SESSION['user_id']]);
     $user_passes = $stmt->fetchAll();
-
 } catch (PDOException $e) {
-    // For a real app, you'd want to log this error and show a friendly message
     die("Could not retrieve user passes: " . $e->getMessage());
 }
 ?>
@@ -33,6 +28,7 @@ try {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anzu Dashboard</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">

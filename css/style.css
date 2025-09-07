@@ -48,20 +48,18 @@ body {
     padding: 60px 0;
 }
 
-/* MORE SPECIFIC SELECTOR */
 .hero h1 {
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 10px;
 }
 
-/* MORE SPECIFIC SELECTOR */
 .hero p {
     font-size: 1.1rem;
     color: #6c757d;
 }
 
-/* Passes Grid */
+/* Passes Grid - THIS MAKES IT RESPONSIVE */
 .passes-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -78,17 +76,15 @@ body {
     flex-direction: column;
 }
 
-/* MORE SPECIFIC SELECTOR */
 .pass-card h2 {
     font-size: 1.5rem;
     margin-top: 0;
     margin-bottom: 10px;
 }
 
-/* MORE SPECIFIC SELECTOR */
 .pass-card .description {
     color: #6c757d;
-    flex-grow: 1; /* Pushes price to the bottom */
+    flex-grow: 1;
     margin-bottom: 20px;
 }
 
@@ -120,7 +116,77 @@ body {
     background-color: #0056b3;
 }
 
-/* Modal Styles */
+/* Dashboard & QR Code Styles */
+.user-pass-card {
+    background-color: #e9ecef;
+    text-align: center;
+}
+
+.pass-code-label {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 5px;
+}
+
+.pass-code-display {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #007bff;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    letter-spacing: 2px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.qr-code-container {
+    margin-bottom: 20px;
+}
+
+.qr-code-image {
+    display: block;
+    width: 80%; /* Takes up 80% of the card's width */
+    max-width: 200px; /* But won't get bigger than 200px on large screens */
+    height: auto;
+    margin: 0 auto; /* Centers the QR code */
+}
+
+.ticket-info {
+    margin-bottom: 20px;
+}
+
+.tickets-remaining {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.tickets-label {
+    margin: 0;
+    color: #6c757d;
+}
+
+.expiry-info {
+    margin-top: auto;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.no-passes-card {
+    background-color: #fff;
+    border: 2px dashed #dee2e6;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.no-passes-card h2 {
+    margin-top: 0;
+}
+
+/* Modal and Form Styles */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -128,7 +194,7 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
-    display: flex;
+    display: none; /* Changed to none by default */
     justify-content: center;
     align-items: center;
     z-index: 1000;
@@ -175,6 +241,10 @@ body {
     border-bottom-color: #007bff;
 }
 
+.modal-tabs .tab-link[data-tab="signup"] {
+    display: none;
+}
+
 .tab-content {
     display: none;
 }
@@ -184,6 +254,16 @@ body {
 }
 
 /* Form Styles */
+.error-banner {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px 15px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
 .input-group {
     margin-bottom: 20px;
 }
@@ -230,74 +310,6 @@ body {
     font-size: 0.9rem;
 }
 
-.error-banner {
-    background-color: #f8d7da;
-    color: #721c24;
-    padding: 10px 15px;
-    border: 1px solid #f5c6cb;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-/* Dashboard Pass Card Styles */
-.user-pass-card {
-    background-color: #e9ecef; /* A different background to distinguish it */
-    text-align: center;
-}
-
-.pass-code-label {
-    font-size: 0.9rem;
-    color: #6c757d;
-    margin-bottom: 5px;
-}
-
-.pass-code-display {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #007bff;
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-    letter-spacing: 2px;
-    margin-top: 0;
-    margin-bottom: 20px;
-}
-
-.ticket-info {
-    margin-bottom: 20px;
-}
-
-.tickets-remaining {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin: 0;
-}
-
-.tickets-label {
-    margin: 0;
-    color: #6c757d;
-}
-
-.expiry-info {
-    margin-top: auto; /* Pushes expiry to the bottom */
-    font-size: 0.9rem;
-    color: #6c757d;
-}
-
-.no-passes-card {
-    background-color: #fff;
-    border: 2px dashed #dee2e6;
-    border-radius: 8px;
-    padding: 60px 40px;
-    text-align: center;
-}
-
-.no-passes-card h2 {
-    margin-top: 0;
-}
-
 /* Version Timestamp Style */
 .version-timestamp {
     position: fixed;
@@ -309,22 +321,4 @@ body {
     padding: 2px 5px;
     border-radius: 3px;
     z-index: 2000;
-}
-
-/* Hide signup tab by default in the modal */
-.modal-tabs .tab-link[data-tab="signup"] {
-    display: none;
-}
-
-/* QR Code Styles - REVISED for Mobile */
-.qr-code-container {
-    margin: 0 15px 20px 15px; /* 15px margin on the sides, 20px on the bottom */
-}
-
-.qr-code-image {
-    display: block; /* Removes extra space below the image */
-    width: 100%;    /* Makes the QR code fill its container */
-    max-width: 250px; /* Caps the size so it doesn't get huge */
-    height: auto;   /* Maintains the square aspect ratio */
-    margin: 0 auto; /* Centers the image within the container */
 }
