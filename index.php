@@ -50,6 +50,13 @@ try {
 </head>
 <body>
 
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="videos/background.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
     <div class="container">
         <header class="main-header">
             <div class="logo">Anzu</div>
@@ -84,7 +91,7 @@ try {
         </main>
     </div>
 
-    <div id="auth-modal" class="modal-overlay" style="display: none;">
+    <div id="auth-modal" class="modal-overlay">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
 

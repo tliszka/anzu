@@ -17,6 +17,43 @@
     --font-main: 'Inter', sans-serif;
 }
 
+/* 1.5. Video Background
+-------------------------------------------------- */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* 100% of the viewport width */
+    height: 100vh; /* 100% of the viewport height */
+    z-index: -1; /* Place it behind all other content */
+    overflow: hidden;
+}
+
+.video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover; /* Ensures the video covers the area without distortion */
+    filter: blur(10px); /* The blur effect */
+    transform: scale(1.1); /* Slightly zoom in to hide blurry edges */
+}
+
+/* Add a dark overlay so text is always readable */
+.video-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
 /* 2. Global Styles & Resets
 -------------------------------------------------- */
 body {
