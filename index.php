@@ -13,6 +13,9 @@ if (isset($_GET['error'])) {
         case 'email_exists':
             $error_message = 'An account with this email already exists.';
             break;
+        case 'invalid_input':
+            $error_message = 'Please fill in all fields correctly.';
+            break;
         default:
             $error_message = 'An unexpected error occurred. Please try again.';
             break;
@@ -86,8 +89,54 @@ try {
                 <button class="tab-link active" data-tab="login">Login</button>
                 <button class="tab-link" data-tab="signup">Sign Up</button>
             </div>
-            
+
+            <div id="login" class="tab-content active">
+                <form action="login.php" method="POST">
+                    <div class="input-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" name="email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Login</button>
+                    <a href="#" class="forgot-password-link" data-tab="forgot">Forgot Password?</a>
+                </form>
             </div>
+
+            <div id="signup" class="tab-content">
+                <h3 id="signup-title">Create Your Account</h3>
+                <form action="signup.php" method="POST">
+                    <input type="hidden" id="signup-pass-id" name="pass_id" value="">
+                    <div class="input-group">
+                        <label for="signup-name">Full Name</label>
+                        <input type="text" id="signup-name" name="name" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="signup-email">Email</label>
+                        <input type="email" id="signup-email" name="email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Sign Up & Purchase</button>
+                </form>
+            </div>
+
+            <div id="forgot" class="tab-content">
+                <h3>Reset Password</h3>
+                <p>Enter your email and we'll send you a link to reset your password.</p>
+                <form action="forgot.php" method="POST">
+                    <div class="input-group">
+                        <label for="forgot-email">Email</label>
+                        <input type="email" id="forgot-email" name="email" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Send Reset Link</button>
+                </form>
+            </div>
+        </div>
     </div>
 
     <script src="js/app.js"></script>
