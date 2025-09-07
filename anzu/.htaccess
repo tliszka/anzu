@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Hozzáférés Korlátozva"
+AuthUserFile /home/anzuhuku/public_html/anzu/.htpasswd
+Require valid-user
