@@ -6,8 +6,7 @@
 /* 1. CSS Variables & Root Setup
 -------------------------------------------------- */
 :root {
-     background-color: #000000; /* Set the deepest background to black */
-    --anzu-bg: #000000;
+    --anzu-bg: #f4f7f9;
     --anzu-surface: #ffffff;
     --anzu-primary: #4a4de7; /* A modern, vibrant purple/blue */
     --anzu-primary-hover: #3e42c4;
@@ -16,51 +15,6 @@
     --anzu-border: #e8edf1;
     --anzu-shadow: 0 8px 24px rgba(74, 77, 231, 0.08);
     --font-main: 'Inter', sans-serif;
-}
-
-/* 1.5. Video Background
--------------------------------------------------- */
-.video-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-    overflow: hidden;
-}
-
-.video-background video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* These two lines stretch the video to fill the screen, causing distortion */
-    width: 100vw;
-    height: 100vh;
-    /* Removed: filter, object-fit, min-width/height */
-}
-
-/* Optional: Keep a very subtle overlay for text readability */
-.video-background::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.1); /* Reduced opacity */
-}
-
-/* Add a dark overlay so text is always readable */
-.video-background::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
 }
 
 /* 2. Global Styles & Resets
