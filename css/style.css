@@ -1,10 +1,31 @@
-/* Basic Reset & Font Setup */
+/*
+ * Anzu - Redesigned Style
+ * A sleek, minimalist, and modern theme.
+ */
+
+/* 1. CSS Variables & Root Setup
+-------------------------------------------------- */
+:root {
+    --anzu-bg: #f4f7f9;
+    --anzu-surface: #ffffff;
+    --anzu-primary: #4a4de7; /* A modern, vibrant purple/blue */
+    --anzu-primary-hover: #3e42c4;
+    --anzu-text-primary: #121212;
+    --anzu-text-secondary: #6a7178;
+    --anzu-border: #e8edf1;
+    --anzu-shadow: 0 8px 24px rgba(74, 77, 231, 0.08);
+    --font-main: 'Inter', sans-serif;
+}
+
+/* 2. Global Styles & Resets
+-------------------------------------------------- */
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: #f8f9fa;
-    color: #212529;
+    font-family: var(--font-main);
+    background-color: var(--anzu-bg);
+    color: var(--anzu-text-primary);
     margin: 0;
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -13,67 +34,80 @@ body {
     padding: 0 20px;
 }
 
-/* Header */
+/* 3. Header
+-------------------------------------------------- */
 .main-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 0;
+    padding: 40px 0;
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     font-weight: 700;
 }
 
 .btn-login {
     text-decoration: none;
-    color: #212529;
+    color: var(--anzu-text-primary);
     font-weight: 600;
-    padding: 8px 20px;
-    border: 2px solid #dee2e6;
+    padding: 10px 24px;
+    border: 2px solid var(--anzu-border);
     border-radius: 50px;
     transition: all 0.2s ease-in-out;
 }
 
 .btn-login:hover {
-    background-color: #212529;
-    color: #fff;
-    border-color: #212529;
+    background-color: var(--anzu-text-primary);
+    color: var(--anzu-surface);
+    border-color: var(--anzu-text-primary);
 }
 
-/* Hero Section */
+/* 4. Hero Section
+-------------------------------------------------- */
 .hero {
     text-align: center;
-    padding: 60px 0;
+    padding: 80px 0;
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
 }
 
 .hero p {
-    font-size: 1.1rem;
-    color: #6c757d;
+    font-size: 1.2rem;
+    color: var(--anzu-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-/* Passes Grid - THIS MAKES IT RESPONSIVE */
+/* 5. Card Layouts (Homepage & Dashboard)
+-------------------------------------------------- */
 .passes-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    padding-bottom: 60px;
+    padding-bottom: 80px;
 }
 
 .pass-card {
-    background-color: #fff;
-    border: 1px solid #e9ecef;
-    border-radius: 8px;
+    background-color: var(--anzu-surface);
+    border: 1px solid var(--anzu-border);
+    border-radius: 12px;
     padding: 30px;
     display: flex;
     flex-direction: column;
+    transition: all 0.2s ease-in-out;
+    box-shadow: var(--anzu-shadow);
+}
+
+.pass-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--anzu-primary);
 }
 
 .pass-card h2 {
@@ -83,48 +117,45 @@ body {
 }
 
 .pass-card .description {
-    color: #6c757d;
+    color: var(--anzu-text-secondary);
     flex-grow: 1;
     margin-bottom: 20px;
 }
 
-.price-container {
-    margin-bottom: 20px;
-}
-
 .price {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 700;
 }
 
 .validity {
-    color: #6c757d;
+    color: var(--anzu-text-secondary);
 }
 
 .btn-purchase {
     text-decoration: none;
-    background-color: #007bff;
+    background-color: var(--anzu-primary);
     color: #fff;
     font-weight: 600;
     text-align: center;
     padding: 15px 20px;
     border-radius: 8px;
     transition: background-color 0.2s ease-in-out;
+    margin-top: 20px;
 }
 
 .btn-purchase:hover {
-    background-color: #0056b3;
+    background-color: var(--anzu-primary-hover);
 }
 
-/* Dashboard & QR Code Styles */
+/* 6. Dashboard Specific Styles
+-------------------------------------------------- */
 .user-pass-card {
-    background-color: #e9ecef;
     text-align: center;
 }
 
 .pass-code-label {
     font-size: 0.9rem;
-    color: #6c757d;
+    color: var(--anzu-text-secondary);
     margin-bottom: 5px;
 }
 
@@ -132,8 +163,8 @@ body {
     font-family: 'Courier New', Courier, monospace;
     font-size: 1.8rem;
     font-weight: bold;
-    color: #007bff;
-    background-color: #fff;
+    color: var(--anzu-primary);
+    background-color: var(--anzu-bg);
     padding: 10px;
     border-radius: 5px;
     letter-spacing: 2px;
@@ -141,184 +172,105 @@ body {
     margin-bottom: 20px;
 }
 
-.qr-code-container {
-    margin-bottom: 20px;
-}
-
 .qr-code-image {
     display: block;
-    width: 80%; /* Takes up 80% of the card's width */
-    max-width: 200px; /* But won't get bigger than 200px on large screens */
+    width: 80%;
+    max-width: 200px;
     height: auto;
-    margin: 0 auto; /* Centers the QR code */
-}
-
-.ticket-info {
-    margin-bottom: 20px;
+    margin: 0 auto 20px auto;
 }
 
 .tickets-remaining {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 700;
     margin: 0;
+    line-height: 1;
 }
 
 .tickets-label {
-    margin: 0;
-    color: #6c757d;
+    margin: 0 0 20px 0;
+    color: var(--anzu-text-secondary);
 }
 
 .expiry-info {
     margin-top: auto;
     font-size: 0.9rem;
-    color: #6c757d;
+    color: var(--anzu-text-secondary);
 }
 
 .no-passes-card {
-    background-color: #fff;
-    border: 2px dashed #dee2e6;
-    border-radius: 8px;
+    background-color: var(--anzu-surface);
+    border: 2px dashed var(--anzu-border);
+    border-radius: 12px;
     padding: 60px 40px;
     text-align: center;
 }
 
-.no-passes-card h2 {
-    margin-top: 0;
-}
-
-/* Modal and Form Styles */
+/* 7. Modal & Form Styles
+-------------------------------------------------- */
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
-    display: none; /* Changed to none by default */
-    justify-content: center;
-    align-items: center;
+    display: none; justify-content: center; align-items: center;
     z-index: 1000;
 }
-
 .modal-content {
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 8px;
-    width: 100%;
-    max-width: 400px;
-    position: relative;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    background-color: var(--anzu-surface);
+    padding: 40px; border-radius: 12px; width: 100%; max-width: 400px;
+    position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
-
 .close-modal {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 2rem;
-    color: #aaa;
-    cursor: pointer;
+    position: absolute; top: 15px; right: 20px; font-size: 2rem;
+    color: #aaa; cursor: pointer;
 }
-
 .modal-tabs {
-    display: flex;
-    border-bottom: 1px solid #e9ecef;
-    margin-bottom: 20px;
+    display: flex; border-bottom: 1px solid var(--anzu-border); margin-bottom: 20px;
 }
-
 .tab-link {
-    background: none;
-    border: none;
-    padding: 15px 20px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #6c757d;
+    background: none; border: none; padding: 15px 20px; cursor: pointer;
+    font-size: 1rem; font-weight: 600; color: var(--anzu-text-secondary);
     border-bottom: 3px solid transparent;
 }
-
 .tab-link.active {
-    color: #007bff;
-    border-bottom-color: #007bff;
+    color: var(--anzu-primary); border-bottom-color: var(--anzu-primary);
 }
-
 .modal-tabs .tab-link[data-tab="signup"] {
     display: none;
 }
-
-.tab-content {
-    display: none;
-}
-
-.tab-content.active {
-    display: block;
-}
+.tab-content { display: none; }
+.tab-content.active { display: block; }
 
 /* Form Styles */
 .error-banner {
-    background-color: #f8d7da;
-    color: #721c24;
-    padding: 10px 15px;
-    border: 1px solid #f5c6cb;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    text-align: center;
+    background-color: #f8d7da; color: #721c24; padding: 10px 15px;
+    border: 1px solid #f5c6cb; border-radius: 5px; margin-bottom: 20px; text-align: center;
 }
-
-.input-group {
-    margin-bottom: 20px;
-}
-
+.input-group { margin-bottom: 20px; }
 .input-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 600;
-    font-size: 0.9rem;
+    display: block; margin-bottom: 5px; font-weight: 600; font-size: 0.9rem;
 }
-
 .input-group input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    font-size: 1rem;
-    box-sizing: border-box;
+    width: 100%; padding: 12px; border: 1px solid var(--anzu-border);
+    border-radius: 8px; font-size: 1rem; box-sizing: border-box;
 }
-
+.input-group input:focus {
+    outline: none; border-color: var(--anzu-primary); box-shadow: 0 0 0 2px rgba(74, 77, 231, 0.2);
+}
 .btn-primary {
-    width: 100%;
-    padding: 15px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s;
+    width: 100%; padding: 15px; background-color: var(--anzu-primary);
+    color: #fff; border: none; border-radius: 8px; font-size: 1rem;
+    font-weight: 600; cursor: pointer; transition: background-color 0.2s;
 }
-
-.btn-primary:hover {
-    background-color: #0056b3;
-}
-
+.btn-primary:hover { background-color: var(--anzu-primary-hover); }
 .forgot-password-link {
-    display: block;
-    text-align: center;
-    margin-top: 15px;
-    color: #007bff;
-    text-decoration: none;
-    font-size: 0.9rem;
+    display: block; text-align: center; margin-top: 15px;
+    color: var(--anzu-primary); text-decoration: none; font-size: 0.9rem;
 }
 
-/* Version Timestamp Style */
+/* 8. Version Timestamp Style
+-------------------------------------------------- */
 .version-timestamp {
-    position: fixed;
-    bottom: 5px;
-    right: 10px;
-    font-size: 0.75rem;
-    color: #adb5bd; /* Light grey */
-    background-color: rgba(0, 0, 0, 0.1);
-    padding: 2px 5px;
-    border-radius: 3px;
+    position: fixed; bottom: 5px; right: 10px; font-size: 0.75rem;
+    color: var(--anzu-text-secondary);
     z-index: 2000;
 }
