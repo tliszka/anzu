@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const openModalButtons = document.querySelectorAll('.btn-login, .btn-purchase');
     const closeModalButton = document.querySelector('.close-modal');
     const tabLinks = document.querySelectorAll('.tab-link');
+    const signupTabLink = document.querySelector('.tab-link[data-tab="signup"]');
     const tabContents = document.querySelectorAll('.tab-content');
     const forgotPasswordLink = document.querySelector('.forgot-password-link');
     const signupTitle = document.getElementById('signup-title');
@@ -25,16 +26,18 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.style.display = 'flex';
 
             if (button.classList.contains('btn-purchase')) {
-                // If a purchase button was clicked, go to signup tab
+                // If a purchase button was clicked, show and switch to the signup tab
+                signupTabLink.style.display = 'block'; // Make tab visible
                 const card = button.closest('.pass-card');
                 const passName = card.querySelector('h2').textContent;
-                const passId = card.dataset.passId; // We'll add this dataset attribute next
+                const passId = card.dataset.passId;
                 
                 signupTitle.textContent = `Purchase ${passName}`;
                 passIdInput.value = passId;
                 switchTab('signup');
             } else {
-                // Otherwise, go to login tab
+                // Otherwise, hide the signup tab and go to the login tab
+                signupTabLink.style.display = 'none'; // Hide tab
                 signupTitle.textContent = 'Create Your Account';
                 passIdInput.value = '';
                 switchTab('login');
@@ -52,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Handle tab switching
+    // Handle tab switching (only for visible tabs)
     tabLinks.forEach(link => {
         link.addEventListener('click', () => switchTab(link.dataset.tab));
     });

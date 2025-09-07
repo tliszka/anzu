@@ -310,3 +310,8 @@ body {
     border-radius: 3px;
     z-index: 2000;
 }
+
+/* Hide signup tab by default in the modal */
+.modal-tabs .tab-link[data-tab="signup"] {
+    display: none;
+}
