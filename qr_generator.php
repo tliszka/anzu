@@ -1,17 +1,15 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
 
 // Include Composer's autoloader to access the library
 require_once __DIR__ . '/vendor/autoload.php';
 
-use Endroid\QrCode\Builder\Builder;
+// Import the necessary classes from the library
+use Endroid\QrCode\QrCode;
 use Endroid\QrCode\Writer\PngWriter;
-use Endroid\QrCode\Encoding\Encoding;
 use Endroid\QrCode\ErrorCorrectionLevel;
 
-// Get the pass code from the URL, with basic sanitization
-$passCode = filter_input(INPUT_GET, 'data', FILTER_SANITIZE_STRING);
+// Get the pass code from the URL
+$passCode = $_GET['data'] ?? null;
 
 if (empty($passCode)) {
     // Exit if no data is provided
@@ -20,16 +18,15 @@ if (empty($passCode)) {
 }
 
 try {
-    // Build the QR code
-    $result = Builder::create()
-        ->writer(new PngWriter())
-        ->writerOptions([])
-        ->data($passCode)
-        ->encoding(new Encoding('UTF-8'))
-        ->errorCorrectionLevel(ErrorCorrectionLevel::High)
-        ->size(300)
-        ->margin(10)
-        ->build();
+    // Create a new QR code object with the pass code data
+    $qrCode = QrCode::create($passCode)
+        ->setErrorCorrectionLevel(ErrorCorrectionLevel::High)
+        ->setSize(300)
+        ->setMargin(10);
+
+    // Create a writer to generate the PNG image
+    $writer = new PngWriter();
+    $result = $writer->write($qrCode);
 
     // Output the QR code image directly to the browser
     header('Content-Type: '.$result->getMimeType());
