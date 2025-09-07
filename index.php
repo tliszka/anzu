@@ -24,7 +24,7 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anzu Cinema Passes</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,7 +41,7 @@ try {
 
         <main>
             <section class="hero">
-                <h1>Anzu Cinema Passes - Welcome T5!</h1>
+                <h1>Anzu Cinema Passes - Welcome T6!</h1>
                 <p>Purchase a pass and enjoy discounted tickets for the next six months.</p>
             </section>
 
