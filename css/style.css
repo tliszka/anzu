@@ -297,3 +297,16 @@ body {
 .no-passes-card h2 {
     margin-top: 0;
 }
+
+/* Version Timestamp Style */
+.version-timestamp {
+    position: fixed;
+    bottom: 5px;
+    right: 10px;
+    font-size: 0.75rem;
+    color: #adb5bd; /* Light grey */
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 2px 5px;
+    border-radius: 3px;
+    z-index: 2000;
+}
