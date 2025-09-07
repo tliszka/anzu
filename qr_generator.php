@@ -1,8 +1,5 @@
 <?php
 
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
 // Include Composer's autoloader to access the library
 require_once __DIR__ . '/vendor/autoload.php';
 
@@ -21,11 +18,13 @@ if (empty($passCode)) {
 }
 
 try {
-    // Create a new QR code object with the pass code data
-    $qrCode = QrCode::create($passCode)
-        ->setErrorCorrectionLevel(ErrorCorrectionLevel::High)
-        ->setSize(300)
-        ->setMargin(10);
+    // Create a new QR code object using the constructor
+    $qrCode = new QrCode($passCode);
+
+    // Set the options on the object
+    $qrCode->setErrorCorrectionLevel(ErrorCorrectionLevel::High);
+    $qrCode->setSize(300);
+    $qrCode->setMargin(10);
 
     // Create a writer to generate the PNG image
     $writer = new PngWriter();
