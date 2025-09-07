@@ -6,9 +6,9 @@ error_reporting(E_ALL);
 
 // -- DATABASE CREDENTIALS --
 // Replace with your new database password
-define('DB_HOST', 'ftp.anzu.hu');
-define('DB_NAME', 'anzuhuku_db');
-define('DB_USER', 'anzuhuku_gemini');
-define('DB_PASS', '(kYxvS&35HRi8C-5');
+define('DB_HOST', '######');
+define('DB_NAME', '######');
+define('DB_USER', '######');
+define('DB_PASS', '######');
 
 ?>
