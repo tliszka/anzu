@@ -1,2 +1,5 @@
 # Ignore the configuration file with sensitive credentials
 config.php
+
+# Ignore Composer's vendor directory
+/vendor/

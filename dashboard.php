@@ -66,6 +66,13 @@ try {
                                 <h2><?= htmlspecialchars($pass['name']) ?></h2>
                                 <p class="pass-code-label">Your Pass Code:</p>
                                 <p class="pass-code-display"><?= htmlspecialchars($pass['pass_code']) ?></p>
+                                
+                                <div class="qr-code-container">
+                                    <img src="qr_generator.php?data=<?= urlencode($pass['pass_code']) ?>" 
+                                         alt="QR Code for Pass" 
+                                         class="qr-code-image">
+                                </div>
+                                
                                 <div class="ticket-info">
                                     <p class="tickets-remaining">
                                         <strong><?= $pass['tickets_remaining'] ?></strong> / <?= $pass['ticket_count'] ?>
