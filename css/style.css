@@ -239,3 +239,61 @@ body {
     margin-bottom: 20px;
     text-align: center;
 }
+
+/* Dashboard Pass Card Styles */
+.user-pass-card {
+    background-color: #e9ecef; /* A different background to distinguish it */
+    text-align: center;
+}
+
+.pass-code-label {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 5px;
+}
+
+.pass-code-display {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #007bff;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    letter-spacing: 2px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.ticket-info {
+    margin-bottom: 20px;
+}
+
+.tickets-remaining {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.tickets-label {
+    margin: 0;
+    color: #6c757d;
+}
+
+.expiry-info {
+    margin-top: auto; /* Pushes expiry to the bottom */
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.no-passes-card {
+    background-color: #fff;
+    border: 2px dashed #dee2e6;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.no-passes-card h2 {
+    margin-top: 0;
+}
