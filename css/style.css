@@ -6,13 +6,13 @@
 /* 1. CSS Variables & Root Setup
 -------------------------------------------------- */
 :root {
-    --anzu-bg: #f4f7f9;
-    --anzu-surface: #ffffff;
-    --anzu-primary: #4a4de7; /* A modern, vibrant purple/blue */
-    --anzu-primary-hover: #3e42c4;
+    --anzu-bg: #B39EA6;
+    --anzu-surface: #B39EA6;
+    --anzu-primary: #ABA89D; /* A modern, vibrant purple/blue */
+    --anzu-primary-hover: #A6A294;
     --anzu-text-primary: #121212;
     --anzu-text-secondary: #6a7178;
-    --anzu-border: #e8edf1;
+    --anzu-border: #7A7F88;
     --anzu-shadow: 0 8px 24px rgba(74, 77, 231, 0.08);
     --font-main: 'Inter', sans-serif;
 }
