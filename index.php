@@ -41,7 +41,7 @@ try {
 
         <main>
             <section class="hero">
-                <h1>Anzu Cinema Passes - Welcome T4!</h1>
+                <h1>Anzu Cinema Passes - Welcome T5!</h1>
                 <p>Purchase a pass and enjoy discounted tickets for the next six months.</p>
             </section>
 
