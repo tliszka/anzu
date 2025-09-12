@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Existing Modal and Form Logic ---
     const modal = document.getElementById('auth-modal');
-    const openModalButtons = document.querySelectorAll('.btn-login, .btn-purchase');
+    const openModalButtons = document.querySelectorAll('.user-profile[href="#login"], .btn-purchase');
     const closeModalButton = document.querySelector('.close-modal');
     const tabLinks = document.querySelectorAll('.tab-link');
     const signupTabLink = document.querySelector('.tab-link[data-tab="signup"]');
@@ -65,4 +66,19 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         switchTab(forgotPasswordLink.dataset.tab);
     });
+
+    // --- New Floating Menu Language Switcher ---
+    const langToggle = document.getElementById('lang-toggle');
+
+    if (langToggle) { // Check if the element exists to avoid errors
+        langToggle.addEventListener('change', function() {
+            if (this.checked) {
+                console.log('Language switched to English');
+                // TODO: Add your language switching logic here for English
+            } else {
+                console.log('Language switched to Hungarian');
+                // TODO: Add your language switching logic here for Hungarian
+            }
+        });
+    }
 });
