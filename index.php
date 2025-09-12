@@ -158,7 +158,7 @@ try {
             <div id="forgot" class="tab-content">
                 <h3>Reset Password</h3>
                 <p>Enter your email and we'll send you a link to reset your password.</p>
-                <form action="forgot_password.php" method="POST">
+                <form action="forgot.php" method="POST">
                     <div class="input-group">
                         <label for="forgot-email">Email</label>
                         <input type="email" id="forgot-email" name="email" required>
