@@ -47,46 +47,43 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anzu Cinema Passes</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css"> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
+    <nav class="floating-menu">
+        <ul>
+            <li><a href="#">item1</a></li>
+            <li><a href="#">item2</a></li>
+            <li>
+                <div class="lang-switch">
+                    <input type="checkbox" id="lang-toggle">
+                    <label for="lang-toggle" class="lang-label">
+                        <span class="lang-hu">hu</span>
+                        <span class="lang-en">en</span>
+                    </label>
+                </div>
+            </li>
+            <li>
+                <?php if (is_user_logged_in()): ?>
+                    <a href="dashboard.php" class="user-profile" title="Dashboard">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </a>
+                <?php else: ?>
+                    <a href="#login" class="user-profile" title="Login">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </a>
+                <?php endif; ?>
+            </li>
+        </ul>
+    </nav>
     <div class="container">
         <header class="main-header">
             <div class="logo">Anzu</div>
-            
-<nav class="floating-menu">
-    <ul>
-        <li><a href="#">item1</a></li>
-        <li><a href="#">item2</a></li>
-        
-        <li>
-            <div class="lang-switch">
-                <input type="checkbox" id="lang-toggle">
-                <label for="lang-toggle" class="lang-label">
-                    <span class="lang-hu">hu</span>
-                    <span class="lang-en">en</span>
-                </label>
-            </div>
-        </li>
-        
-        <li>
-            <?php if (is_user_logged_in()): ?>
-                <a href="dashboard.php" class="user-profile" title="Dashboard">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                </a>
-            <?php else: ?>
-                <a href="#login" class="user-profile" title="Login">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                </a>
-            <?php endif; ?>
-        </li>
-    </ul>
-</nav>
-        </header>
+            </header>
 
         <main>
             <section class="hero">
@@ -172,7 +169,7 @@ try {
         </div>
     </div>
 
-    <script src="js/app.js"></script>
+    <script src="assets/js/app.js"></script>
     <?php if ($error_message): ?>
     <script>
         // If there's an error, automatically open the modal
