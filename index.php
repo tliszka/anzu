@@ -57,13 +57,35 @@ try {
     <div class="container">
         <header class="main-header">
             <div class="logo">Anzu</div>
-            <nav>
-                <?php if (is_user_logged_in()): ?>
-                    <a href="dashboard.php" class="btn-login">Dashboard</a>
-                <?php else: ?>
-                    <a href="#login" class="btn-login">Login</a>
-                <?php endif; ?>
-            </nav>
+            
+<nav class="floating-menu">
+    <ul>
+        <li><a href="#">item1</a></li>
+        <li><a href="#">item2</a></li>
+        
+        <li>
+            <div class="lang-switch">
+                <input type="checkbox" id="lang-toggle">
+                <label for="lang-toggle" class="lang-label">
+                    <span class="lang-hu">hu</span>
+                    <span class="lang-en">en</span>
+                </label>
+            </div>
+        </li>
+        
+        <li>
+            <?php if (is_user_logged_in()): ?>
+                <a href="dashboard.php" class="user-profile" title="Dashboard">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </a>
+            <?php else: ?>
+                <a href="#login" class="user-profile" title="Login">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </a>
+            <?php endif; ?>
+        </li>
+    </ul>
+</nav>
         </header>
 
         <main>
